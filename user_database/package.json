@@ -1,10 +1,9 @@
 {
-  "name": "hello_app",
+  "name": "user_database",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,8 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "node-fetch": "^2.2.0"
+    "lowdb": "^1.0.0"
   }
 }

@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "name": "default user"
+    },
+    {
+      "name": "default user 2"
+    },
+    {
+      "name": "peter"
+    },
+    {
+      "name": "test"
+    },
+    {
+      "name": "test2"
+    },
+    {},
+    {},
+    {},
+    {
+      "name": "99"
+    }
+  ]
+}
