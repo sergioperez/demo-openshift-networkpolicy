@@ -12,6 +12,7 @@ app.get('/', (req, res) => {
   res.redirect('/users')
 })
 
+
 app.get('/users', (req, res) => {
   res.render('users', {
     users: users
@@ -22,6 +23,10 @@ app.post('/user', (req, res) => {
   userName = req.body.name
   users.push({ name: userName })
   res.redirect('/users')
+})
+
+app.get('/api/users', (req, res) => {
+  res.json({ length: users.length, users: users })
 })
 
 app.listen(port, () => {
