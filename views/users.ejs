@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <h1>User index</h1>
+  <h2>User list</h2>
+  <ul>
+    <% users.forEach((user) => { %>
+      <li><%= user.name %></li>
+    <% }) %>
+  </ul>
+
+  <h2>Add user</h2>
+  <form action="/user" method="post">
+    Name: <input type="text" name="name">
+    <input type="submit" value="Create user"/>
+  </form>
+  
+</body>
+</html>
