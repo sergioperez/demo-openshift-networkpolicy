@@ -8,6 +8,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 users = new Array()
 
+/** Stores the given user */
+function storeUser(userName) {
+  users.push({ name: userName })
+}
+
+
 app.get('/', (req, res) => {
   res.redirect('/users')
 })
@@ -19,14 +25,26 @@ app.get('/users', (req, res) => {
   })
 })
 
+/** Creates an user received at the body and redirects*/
 app.post('/user', (req, res) => {
   userName = req.body.name
-  users.push({ name: userName })
+  storeUser(userName)
+
   res.redirect('/users')
 })
 
+
+/** Returns an object showing a list of users and its length  */
 app.get('/api/users', (req, res) => {
   res.json({ length: users.length, users: users })
+})
+
+/** Adds an username received at the body */
+app.post('/api/user', (req, res) => {
+  userName = req.body.name
+  storeUser(userName)
+
+  res.send("OK", 200)
 })
 
 app.listen(port, () => {
