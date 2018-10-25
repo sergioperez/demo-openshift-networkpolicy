@@ -26,13 +26,13 @@ async function storeUser(userName) {
 
 async function getUsers() {
   // Get to the user_database service so the users are retrieved
-  const users = await fetch(API_USERS + '/users')
+  users = await fetch(API_USERS + '/users')
   return users
 }
 
 
 app.get('/', (req, res) => {
-  res.redirect('/users')
+  res.send("<a href='/users'>Happy users list</a>")
 })
 
 
