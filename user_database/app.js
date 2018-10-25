@@ -14,6 +14,8 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
+app.use(express.static('public'))
+
 
 function getUsers() {
   const users = db.get('users')
@@ -25,6 +27,10 @@ function storeUser(userName) {
   db.get('users').push({ name: userName }).write()
   console.log("Stored user " + userName)
 }
+
+app.get('/', (req, res) => {
+  res.sendFile("index.html")
+})
 
 app.get('/users', (req, res) => {
   const users = getUsers()
