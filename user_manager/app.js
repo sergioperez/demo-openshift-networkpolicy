@@ -5,7 +5,7 @@ const fetch = require('node-fetch')
 
 const API_USERS = 'http://127.0.0.1:8080'
 
-var port = 8000
+var port = 8080
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
 
