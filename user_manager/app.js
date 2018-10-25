@@ -3,7 +3,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const fetch = require('node-fetch')
 
-const API_USERS = 'http://127.0.0.1:8080'
+const API_USERS = process.env.DATABASE_USERS_URL
 
 var port = 8080
 app.set('view engine', 'ejs')
