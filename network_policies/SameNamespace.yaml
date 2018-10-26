@@ -1,7 +1,7 @@
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: my-namespace-pods-are-http-friends
+  name: my-namespace-pods-are-friends
 spec:
   podSelector:
   ingress: 
