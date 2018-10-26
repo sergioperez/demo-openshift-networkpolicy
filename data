@@ -1,8 +1,0 @@
-oc new-app https://gitlab.com/sergioperez/nodejs-express-demo.git --context-dir=user_database --name="nodejs-database"
-oc expose svc/nodejs-database
-oc patch route nodejs-database-p '{"spec": {"tls": {"insecureEdgeTerminationPolicy": "Redirect", "termination": "edge"}}}'
-
-oc new-app https://gitlab.com/sergioperez/nodejs-express-demo.git --context-dir=user_manager --name="nodejs-manager" --env DATABASE_USERS_URL=http://nodejs-database.networkpolicy-demo.svc.cluster.local:8080
-oc expose svc/nodejs-manager
-
-oc patch route nodejs-manager -p '{"spec": {"tls": {"insecureEdgeTerminationPolicy": "Redirect", "termination": "edge"}}}'
