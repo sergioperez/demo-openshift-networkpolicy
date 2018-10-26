@@ -1,0 +1,13 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: core-services-only-accessed-by-apps
+spec:
+  podSelector:
+    matchLabels:
+      podType: core-service
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          podType: app
