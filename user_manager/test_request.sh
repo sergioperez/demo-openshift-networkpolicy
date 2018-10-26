@@ -1,3 +1,3 @@
 #!/bin/bash
-curl $DATABASE_API_URL/users
+curl $DATABASE_USERS_URL/users
 echo "\n"
