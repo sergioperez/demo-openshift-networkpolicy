@@ -37,7 +37,13 @@ On its backend, it gets the list of users from the User Database, and it creates
 
 ## How to deploy
 
-First of all, we can deploy the user database using S2I:
+First of all, we will create a project to perform any test with this repo.
+
+```bash
+oc new-project networkpolicy-demo --description="tests" --display-name="networkpolicy-demo"
+```
+
+Now, we can deploy the user database using S2I:
 
 ```bash
 oc new-app https://gitlab.com/sergioperez/nodejs-express-demo.git --context-dir=user_database --name="nodejs-database"
@@ -66,3 +72,29 @@ And we are almost done! Just do the same as you did with the UserDatabase app, e
 oc expose svc/nodejs-manager
 oc patch route nodejs-manager -p '{"spec": {"tls": {"insecureEdgeTerminationPolicy": "Redirect", "termination": "edge"}}}'
 ```
+
+Now we can enter to the **network_policies** folder and apply the different NetworkPolicy objects to the pods of the project using the following syntax:
+
+```bash
+oc create -f network_policy_file.yaml
+``` 
+
+You can add labels to the pods with the following syntax:
+
+```bash
+oc label pod pod_name "labelname=labelvalue"
+```
+
+In order to delete a NetworkPolicy object, you can run:
+
+```bash
+oc delete NetworkPolicy network_policy_name
+```
+
+or
+
+```bash
+oc delete -f network_policy_file.yaml
+```
+
+And now... Start playing with your NetworkPolicies! :)
