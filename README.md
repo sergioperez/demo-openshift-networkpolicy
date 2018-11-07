@@ -100,3 +100,14 @@ oc delete -f network_policy_file.yaml
 ```
 
 And now... Start playing with your NetworkPolicies! :)
+
+
+## Extra content
+
+### Set a NetworkPolicy by default to the newly created projects
+
+https://docs.openshift.com/container-platform/3.9/admin_guide/managing_networking.html#admin-guide-networking-networkpolicy-setting-default
+
+### Allow access to our apps from the pods
+
+https://docs.openshift.com/container-platform/3.9/admin_guide/managing_networking.html#admin-guide-networking-networkpolicy-routers
