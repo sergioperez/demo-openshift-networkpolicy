@@ -85,6 +85,8 @@ You can add labels to the pods with the following syntax:
 oc label pod pod_name "labelname=labelvalue"
 ```
 
+Warning: If you label a pod, the label will be lost when it is finished, so this is only being done to demonstrate how a NetworkPolicy object works.
+
 In order to delete a NetworkPolicy object, you can run:
 
 ```bash
