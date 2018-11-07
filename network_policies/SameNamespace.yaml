@@ -7,3 +7,6 @@ spec:
   ingress: 
   - from:
     - podSelector: {}
+  - ports:
+    - protocol: TCP
+      port: 5432
