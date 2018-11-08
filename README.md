@@ -46,7 +46,7 @@ oc new-project networkpolicy-demo --description="tests" --display-name="networkp
 Now, we can deploy the user database using S2I:
 
 ```bash
-oc new-app https://gitlab.com/sergioperez/nodejs-express-demo.git --context-dir=user_database --name="nodejs-database"
+oc new-app https://gitlab.com/sergioperez/nodejs-express-demo.git --context-dir=user_database --name="nodejs-database" --labels="myAppName=demoApi"
 ```
 
 Then, we will create route so we can perform requests directly to the database for testing purposes:
@@ -63,7 +63,7 @@ oc patch route nodejs-database-p '{"spec": {"tls": {"insecureEdgeTerminationPoli
 
 Now it is time to deploy the UserManager app, and we pass the DATABASE_USERS_URL as an environment variable
 ```bash
-oc new-app https://gitlab.com/sergioperez/nodejs-express-demo.git --context-dir=user_manager --name="nodejs-manager" --env DATABASE_USERS_URL=http://nodejs-database.networkpolicy-demo.svc.cluster.local:8080
+oc new-app https://gitlab.com/sergioperez/nodejs-express-demo.git --context-dir=user_manager --name="nodejs-manager" --env DATABASE_USERS_URL=http://nodejs-database.networkpolicy-demo.svc.cluster.local:8080 --labels="myAppName=demoManager"
 ```
 
 And we are almost done! Just do the same as you did with the UserDatabase app, expose it to create a route, and add an https redirection.
