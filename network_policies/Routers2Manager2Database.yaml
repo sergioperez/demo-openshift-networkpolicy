@@ -11,12 +11,6 @@
       - podSelector:
           matchLabels:
             myAppName: demoManager
-    egress:
-    - to:
-      - podSelector:
-          matchLabels:
-            myAppName: demoManager
-
 
 
 - kind: NetworkPolicy
@@ -27,13 +21,8 @@
     podSelector:
       matchLabels:
         myAppName: demoManager
-    ingress:
-    - from:
-      - podSelector:
-          matchLabels:
-            myAppName: demoApi
     egress:
     - to:
       - podSelector:
           matchLabels:
-            myAppManager: demoManager
+            myAppManager: demoApi
