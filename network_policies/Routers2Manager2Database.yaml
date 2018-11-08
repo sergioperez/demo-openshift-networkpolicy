@@ -1,0 +1,39 @@
+- kind: NetworkPolicy
+  apiVersion: networking.k8s.io/v1
+  metadata:
+    name: api-public-port-available-to-managers
+  spec:
+    podSelector:
+      matchLabels:
+        myAppName: demoApi
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            myAppName: demoManager
+    egress:
+    - to:
+      - podSelector:
+          matchLabels:
+            myAppName: demoManager
+
+
+
+- kind: NetworkPolicy
+  apiVersion: networking.k8s.io/v1
+  metadata:
+    name: managerCanReceiveTrafficFromApi
+  spec:
+    podSelector:
+      matchLabels:
+        myAppName: demoManager
+    ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            myAppName: demoApi
+    egress:
+    - to:
+      - podSelector:
+          matchLabels:
+            myAppManager: demoManager
