@@ -58,7 +58,7 @@ oc expose svc/nodejs-database
 Once the database is deployed, we can modify the route so our connections are routed through https
 
 ```bash
-oc patch route nodejs-database-p '{"spec": {"tls": {"insecureEdgeTerminationPolicy": "Redirect", "termination": "edge"}}}'
+oc patch route nodejs-database -p '{"spec": {"tls": {"insecureEdgeTerminationPolicy": "Redirect", "termination": "edge"}}}'
 ```
 
 Now it is time to deploy the UserManager app, and we pass the DATABASE_USERS_URL as an environment variable
